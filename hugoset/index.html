@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Window环境搭建hugo个人博客 - Crush-Cmjの博客 - 在阅读中遇见自己</title><meta name="Description" content="早起的年轻人"><meta property="og:title" content="Window环境搭建hugo个人博客" />
+<meta property="og:description" content="Window环境搭建hugo个人博客 电脑安装并配置Git，尤其是username和email 注册GitHub账号，在GitHub配置ssh验" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Crush-hub.github.io/hugoset/" /><meta property="og:image" content="https://Crush-hub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-23T10:07:42+08:00" />
+<meta property="article:modified_time" content="2021-07-23T10:07:42+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Crush-hub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Window环境搭建hugo个人博客"/>
+<meta name="twitter:description" content="Window环境搭建hugo个人博客 电脑安装并配置Git，尤其是username和email 注册GitHub账号，在GitHub配置ssh验"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Crush-hub.github.io/hugoset/" /><link rel="next" href="https://Crush-hub.github.io/mysql/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Window环境搭建hugo个人博客",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Crush-hub.github.io\/hugoset\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/Crush-hub.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "hugo","wordcount":  4012 ,
+        "url": "https:\/\/Crush-hub.github.io\/hugoset\/","datePublished": "2021-07-23T10:07:42+08:00","dateModified": "2021-07-23T10:07:42+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Crush","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/Crush-hub.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Crush-Cmj"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/friend/"><i class='fas fa-user-friends'></i> 友链 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/friend/" title=""><i class='fas fa-user-friends'></i>友链</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Window环境搭建hugo个人博客</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Crush-Cmj</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%BE%E7%BD%AE/"><i class="far fa-folder fa-fw"></i>设置</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4012 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/hugoset/" class="leancloud_visitors" data-flag-title="Window环境搭建hugo个人博客">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#window环境搭建hugo个人博客">Window环境搭建hugo个人博客</a>
+      <ul>
+        <li><a href="#1github下载hugo">1.github下载Hugo</a>
+          <ul>
+            <li><a href="#配置hugo环境变量将hugoexe-配置到系统变量">配置hugo环境变量,将hugo.exe 配置到系统变量</a></li>
+            <li><a href="#创建站点">创建站点</a></li>
+          </ul>
+        </li>
+        <li><a href="#2下载主题">2.下载主题</a></li>
+        <li><a href="#3新增文章本地测试">3.新增文章本地测试</a></li>
+        <li><a href="#4github新建仓库">4.github新建仓库</a></li>
+        <li><a href="#4博客部署到远端地址生成public文件">4.博客部署到远端地址,生成public文件</a></li>
+        <li><a href="#5将public文件夹推送到github仓库">5.将public文件夹推送到github仓库</a></li>
+        <li><a href="#6生成博客">6.生成博客</a></li>
+      </ul>
+    </li>
+    <li><a href="#引入图片">引入图片</a>
+      <ul>
+        <li><a href="#1下载安装picgo">1.下载安装PicGo</a></li>
+        <li><a href="#2安装npm">2.安装npm</a></li>
+        <li><a href="#3设置picgo用gitee作为图床">3.设置PicGo用Gitee作为图床</a></li>
+        <li><a href="#4-设置typora">4. 设置Typora</a></li>
+      </ul>
+    </li>
+    <li><a href="#新增文章">新增文章</a>
+      <ul>
+        <li><a href="#创建md文件">创建md文件</a></li>
+        <li><a href="#本地测试">本地测试</a></li>
+        <li><a href="#生成public文件">生成public文件</a></li>
+        <li><a href="#推送到github">推送到github</a></li>
+      </ul>
+    </li>
+    <li><a href="#loveit主题配置问题">Loveit主题配置问题</a>
+      <ul>
+        <li><a href="#标签与分类参数">标签与分类参数</a></li>
+        <li><a href="#添加友情链接-shortcodes">添加友情链接 shortcodes</a></li>
+        <li><a href="#摘要分割符">摘要分割符</a></li>
+        <li><a href="#注意和技巧代码框">注意和技巧代码框</a></li>
+        <li><a href="#开启画廊效果">开启画廊效果</a></li>
+        <li><a href="#未解决问题">未解决问题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="window环境搭建hugo个人博客">Window环境搭建hugo个人博客</h1>
+<hr>
+<ul>
+<li>电脑安装并配置Git，尤其是username和email</li>
+<li>注册GitHub账号，在GitHub配置ssh验证</li>
+<li>配置环境变量</li>
+</ul>
+<h2 id="1github下载hugo">1.github下载Hugo</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">https://github.com/gohugoio/hugo/releases
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置hugo环境变量将hugoexe-配置到系统变量">配置hugo环境变量,将hugo.exe 配置到系统变量</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/1.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="创建站点">创建站点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">hugo</span> <span class="k">new</span> <span class="n">site</span> <span class="n">Myblog1</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2下载主题">2.下载主题</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"> <span class="n">cd</span> <span class="n">themes</span>
+ <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="c1">//github.com/vaga/hugo-theme-LoveIt.git themes/LoveIt
+</span></code></pre></td></tr></table>
+</div>
+</div><p>根据主题文档进行简单配置（exampleSite）示例站点</p>
+<h2 id="3新增文章本地测试">3.新增文章本地测试</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">hugo</span> <span class="k">new</span> <span class="n">posts</span><span class="p">/</span><span class="n">FileName</span><span class="p">.</span><span class="n">md</span>
+<span class="n">hugo</span> <span class="n">server</span> <span class="p">-</span><span class="n">t</span> <span class="n">LoveIt</span> <span class="p">--</span><span class="n">buildDrafts</span> <span class="p">--</span><span class="n">disableFastRender</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>访问http://localhost:1313/测试是否可访问</p>
+<h2 id="4github新建仓库">4.github新建仓库</h2>
+<p>仓库用于部署站点文件，仓库名设置为用户名+.github.io ，https://Crush-hub.github.io即博客地址</p>
+<h2 id="4博客部署到远端地址生成public文件">4.博客部署到远端地址,生成public文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">hugo</span> <span class="p">--</span><span class="n">theme</span><span class="p">=</span><span class="n">LoveIt</span> <span class="p">--</span><span class="n">baseUrl</span><span class="p">=</span><span class="s">&#34;https://Crush-hub.github.io/&#34;</span> <span class="p">--</span><span class="n">buildDrafts</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="5将public文件夹推送到github仓库">5.将public文件夹推送到github仓库</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">cd</span> <span class="k">public</span>
+
+<span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="k">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="p">-</span><span class="n">m</span> <span class="s">&#34;yyyy/mm/dd-hh:mm&#34;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="k">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="c1">//github.com/Crush-hub/Crush-hub.github.io.git
+</span><span class="c1"></span>
+<span class="n">git</span> <span class="n">push</span> <span class="p">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span><span class="p">(</span><span class="err">第一次推送</span><span class="p">)</span>
+
+<span class="n">git</span> <span class="n">push</span>
+
+<span class="n">git</span> <span class="n">push</span> <span class="p">-</span><span class="n">f</span>
+<span class="err">#强制更新</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="6生成博客">6.生成博客</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">https://crush-hub.github.io
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="引入图片">引入图片</h1>
+<ul>
+<li>第一种方式：图片放置在根目录下的static中，也就是网站的绝对路径</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">![](/images/two_images.jpg)
+</code></pre></td></tr></table>
+</div>
+</div><p>弊端就是写博客时无法看到粘贴的图片</p>
+<ul>
+<li>第二种方式：利用PicGo工具搭建图床，将gitee仓库设置为图床。</li>
+</ul>
+<p>原理就是PicGo将图片上传到你的gitee仓库，然后返回给你图片的具体地址，这样你用该地址便可以访问到位于仓库的图片了。</p>
+<h2 id="1下载安装picgo">1.下载安装PicGo</h2>
+<p>访问<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener noreffer">PicGo release</a>下载操作系统对应安装包，注意不可安装到<code>C:\Program Files</code>，Typore无法解析该路径</p>
+<h2 id="2安装npm">2.安装npm</h2>
+<p>由于PicGo的插件需要使用npm进行安装，如果你的电脑上没有安装npm，那么无法安装PicGo插件，npm最低版本为6+</p>
+<h2 id="3设置picgo用gitee作为图床">3.设置PicGo用Gitee作为图床</h2>
+<p>运行<code>PicGo</code>，单击<code>插件设置</code>，在搜索中输入<code>github</code>，安装搜索结果中的<code>github-plus</code>，如下图所示。</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721093138.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p>移步gitee并创建一个仓库，仓库名随意，但是必须设置为公开仓库且允许在线编辑，我创建的仓库地址是<code>https://gitee.com/cao-lianjie/pic-go</code>，创建完仓库后创建一个私人令牌，私人令牌是用来允许<code>PicGo</code>访问并更新你的仓库。</p>
+<p>访问新建<a href="https://gitee.com/profile/personal_access_tokens" target="_blank" rel="noopener noreffer">私人令牌</a>PicGo要使用的私人令牌只需要<code>user_info</code>和<code>projects</code>权限，勾选上后提交，gitee将会返回私人令牌的<code>token</code>，保存该<code>token</code>，<code>token</code>只会出现一次，离开页面过后再不会出现。</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094220.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p>回到Picgo，点击<code>图床设置-&gt;githubPlus</code>，在设置中填入<code>repo</code>和<code>token</code>，并选择<code>origin</code>为gitee，即可完成设置。</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721094429.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h2 id="4-设置typora">4. 设置Typora</h2>
+<p>使用PicGo有效避免了使用图片时候的<code>上传</code>-&gt;<code>编写markdown代码</code>的步骤，但是我们能不能把<code>添加到PicGo</code>这一步也省略掉呢？答案当然是可以，Typora内置了使用PicGo自动上传图片的功能，也就是说，在需要使用图片的时候，你只要直接将图片粘贴到Typora就好了，这样就跟使用本地图片的体验毫无差距了。</p>
+<ul>
+<li>点击Typora左上角的<code>文件</code>-&gt;<code>偏好设置</code></li>
+<li>在弹出的界面中定位到<code>图像</code>，选择<code>插入图片时</code>选项为<code>上传图片</code>，并勾选<code>对网络位置的图片应用上述规则</code></li>
+<li>设置完成如图所示</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721100606.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>选择<code>上传服务</code>为<code>PicGo(app)</code>，点击<code>验证图片上传选项</code>，如果出现如下图所示界面，说明配置已成功，然后你就可以直接在Typora中插入图片了，Typora会自动上传并替换图片地址为网络地址。</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721102610.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p>如出现以下错误,点击PicGo界面左侧的<code>PicGo设置</code>-&gt;<code>设置Server</code>，并按下图设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">Failed</span> <span class="n">to</span> <span class="n">fetch</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png" title="image-20210721102931206" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png" data-sub-html="<h2> </h2><p>image-20210721102931206</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721102931206.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h1 id="新增文章">新增文章</h1>
+<h2 id="创建md文件">创建md文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo new posts/FileName.md
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="本地测试">本地测试</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo server -t LoveIt --buildDrafts --disableFastRender
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="生成public文件">生成public文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo --theme=LoveIt --baseUrl=&#34;https://Crush-hub.github.io/&#34; --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="推送到github">推送到github</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add .
+git commit -m &#34;yyyy/mm/dd-hh:mm&#34;
+git push 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="loveit主题配置问题">Loveit主题配置问题</h1>
+<h2 id="标签与分类参数">标签与分类参数</h2>
+<ul>
+<li>LoveIt主题官方前置参数</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">---
+title: &#34;我的第一篇文章&#34; 
+		#文章标题
+subtitle: &#34;&#34;
+		#文章副标题
+date: 2020-03-04T15:58:26+08:00
+		#这篇文章创建的日期时间. 它通常是从文章的前置参数中的 date 字段获取的, 但是也可以在 网站配置 中设置.
+lastmod: 2020-03-04T15:58:26+08:00
+		#上次修改内容的日期时间
+draft: true
+		#如果设为 true, 除非 hugo 命令使用了 --buildDrafts/-D 参数, 这篇文章不会被渲染.
+author: &#34;&#34;
+		#文章作者
+authorLink: &#34;&#34;
+		#文章作者的链接
+description: &#34;&#34;
+		#文章内容的描述
+license: &#34;&#34;
+		#这篇文章特殊的许可
+images: []
+		#页面图片, 用于 Open Graph 和 Twitter Cards.
+tags: []
+		#文章的标签
+categories: []
+		#文章所属的类别
+featuredImage: &#34;&#34;
+		#文章的特色图片
+featuredImagePreview: &#34;&#34;
+		#用在主页预览的文章特色图片
+hiddenFromHomePage: false
+		#如果设为 true, 这篇文章将不会显示在主页上
+hiddenFromSearch: false
+		#如果设为 true, 这篇文章将不会显示在搜索结果中.
+twemoji: false
+		#如果设为 true, 这篇文章会使用 twemoji.
+lightgallery: true
+		#如果设为 true, 文章中的图片将可以按照画廊形式呈现.
+ruby: true
+		#如果设为 true, 这篇文章会使用 上标注释扩展语法.
+fraction: true
+		#如果设为 true, 这篇文章会使用 分数扩展语法
+fontawesome: true
+		#如果设为 true, 这篇文章会使用 Font Awesome 扩展语法.
+linkToMarkdown: true
+		#如果设为 true, 内容的页脚将显示指向原始 Markdown 文件的链接.
+rssFullText: false
+		#如果设为 true, 在 RSS 中将会显示全文内容.
+		#toc: 和网站配置 中的 params.page.toc 部分相同.
+		#code: 和网站配置 中的 params.page.code 部分相同.
+		#math: 和网站配置 中的 params.page.math 部分相同.
+		#mapbox: 和网站配置 中的 params.page.mapbox 部分相同.
+		#share: 和 网站配置 中的 params.page.share 部分相同.
+		#comment: 和网站配置 中的 params.page.comment 部分相同.
+		#library: 和网站配置中的 params.page.library 部分相同.
+		#seo: 和网站配置中的 params.page.seo 部分相同.
+
+toc:
+  enable: true
+  auto: true
+code:
+  copy: true
+  # ...
+math:
+  enable: true
+  # ...
+mapbox:
+  accessToken: &#34;&#34;
+  # ...
+share:
+  enable: true
+  # ...
+comment:
+  enable: true
+  # ...
+library:
+  css:
+    # someCSS = &#34;some.css&#34;
+    # 位于 &#34;assets/&#34;
+    # 或者
+    # someCSS = &#34;https://cdn.example.com/some.css&#34;
+  js:
+    # someJS = &#34;some.js&#34;
+    # 位于 &#34;assets/&#34;
+    # 或者
+    # someJS = &#34;https://cdn.example.com/some.js&#34;
+seo:
+  images: []
+  # ...
+---
+
+</code></pre></td></tr></table>
+</div>
+</div><p>在博客根目录<code>archetypes</code>文件夹下设置<code>default.md</code>默认标签如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">title: &#34;{{ replace .TranslationBaseName &#34;-&#34; &#34; &#34; | title }}&#34;   
+subtitle: &#34;&#34;	#
+date: {{ .Date }}
+lastmod: {{ .Date }}
+draft: false
+toc:
+  enable: true
+weight: false
+categories: [&#34;&#34;]
+tags: [&#34;&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><p>新增文章需设置<code>categories和tags</code>标签</p>
+<h2 id="添加友情链接-shortcodes">添加友情链接 shortcodes</h2>
+<p>hugo在主目录下layouts没有模板文件时,会找到themes下的layouts文件夹内的模板文件进行渲染.</p>
+<ul>
+<li>
+<ol>
+<li><code>LoveIt/layouts/shortcodes/</code> 下面新建 <code>friend.html</code> 文件：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{{ if .IsNamedParams }}
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="err">.</span><span class="na">Get</span> <span class="err">&#34;</span><span class="na">url</span><span class="err">&#34;</span> <span class="err">}}</span> <span class="na">title</span><span class="o">=</span><span class="s">{{</span> <span class="err">.</span><span class="na">Get</span> <span class="err">&#34;</span><span class="na">name</span><span class="err">&#34;</span> <span class="err">}}</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;friendurl&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;frienddiv&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;frienddivleft&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;myfriend&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="err">.</span><span class="na">Get</span> <span class="err">&#34;</span><span class="na">logo</span><span class="err">&#34;</span> <span class="err">}}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;frienddivright&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;friendname&#34;</span><span class="p">&gt;</span>{{ .Get &#34;name&#34; }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;friendinfo&#34;</span><span class="p">&gt;</span>{{ .Get &#34;word&#34; }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+{{ end }}
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<ol start="2">
+<li><code>LoveIt/assets/css/_partial/_single/</code> 下面新建 <code>_friend.scss</code> 文件：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.friendurl</span> <span class="p">{</span>
+ <span class="na">text-decoration</span><span class="o">:</span> <span class="ni">none</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">color</span><span class="o">:</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.myfriend</span> <span class="p">{</span>
+ <span class="na">width</span><span class="o">:</span> <span class="mi">56</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">height</span><span class="o">:</span> <span class="mi">56</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">border-radius</span><span class="o">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+ <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="ni">solid</span> <span class="mh">#ddd</span><span class="p">;</span>
+ <span class="na">padding</span><span class="o">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">box-shadow</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.15</span><span class="p">);</span>
+ <span class="na">margin-top</span><span class="o">:</span> <span class="mi">14</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">margin-left</span><span class="o">:</span> <span class="mi">14</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">background-color</span><span class="o">:</span> <span class="mh">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddiv</span> <span class="p">{</span>
+ <span class="na">height</span><span class="o">:</span> <span class="mi">92</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">margin-top</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">width</span><span class="o">:</span> <span class="mi">48</span><span class="kt">%</span><span class="p">;</span>
+ <span class="na">display</span><span class="o">:</span> <span class="ni">inline-block</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">border-radius</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">background</span><span class="o">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.2</span><span class="p">);</span>
+ <span class="na">box-shadow</span><span class="o">:</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddiv</span><span class="nd">:hover</span> <span class="p">{</span>
+ <span class="na">background</span><span class="o">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">87</span><span class="o">,</span> <span class="mi">142</span><span class="o">,</span> <span class="mi">224</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.15</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddiv</span><span class="nd">:hover</span> <span class="nc">.frienddivleft</span> <span class="nt">img</span> <span class="p">{</span>
+ <span class="na">transition</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">s</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-webkit-transition</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">s</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-moz-transition</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">s</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-o-transition</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">s</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-ms-transition</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">s</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">transform</span><span class="o">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">)</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-webkit-transform</span><span class="o">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">)</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-moz-transform</span><span class="o">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">)</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-o-transform</span><span class="o">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">)</span> <span class="k">!important</span><span class="p">;</span>
+ <span class="na">-ms-transform</span><span class="o">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">)</span> <span class="k">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddivleft</span> <span class="p">{</span>
+ <span class="na">width</span><span class="o">:</span> <span class="mi">92</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">float</span><span class="o">:</span> <span class="ni">left</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddivleft</span> <span class="p">{</span>
+ <span class="na">margin-right</span><span class="o">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.frienddivright</span> <span class="p">{</span>
+ <span class="na">margin-top</span><span class="o">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+ <span class="na">margin-right</span><span class="o">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.friendname</span> <span class="p">{</span>
+ <span class="na">text-overflow</span><span class="o">:</span> <span class="ni">ellipsis</span><span class="p">;</span>
+ <span class="na">overflow</span><span class="o">:</span> <span class="ni">hidden</span><span class="p">;</span>
+ <span class="na">white-space</span><span class="o">:</span> <span class="ni">nowrap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.friendinfo</span> <span class="p">{</span>
+ <span class="na">text-overflow</span><span class="o">:</span> <span class="ni">ellipsis</span><span class="p">;</span>
+ <span class="na">overflow</span><span class="o">:</span> <span class="ni">hidden</span><span class="p">;</span>
+ <span class="na">white-space</span><span class="o">:</span> <span class="ni">nowrap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@media</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">600</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nc">.friendinfo</span> <span class="p">{</span>
+  <span class="na">display</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="nc">.frienddivleft</span> <span class="p">{</span>
+  <span class="na">width</span><span class="o">:</span> <span class="mi">84</span><span class="kt">px</span><span class="p">;</span>
+  <span class="na">margin</span><span class="o">:</span> <span class="ni">auto</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="nc">.frienddivright</span> <span class="p">{</span>
+  <span class="na">height</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+  <span class="na">margin</span><span class="o">:</span> <span class="ni">auto</span><span class="p">;</span>
+  <span class="na">display</span><span class="o">:</span> <span class="ni">flex</span><span class="p">;</span>
+  <span class="na">align-items</span><span class="o">:</span> <span class="ni">center</span><span class="p">;</span>
+  <span class="na">justify-content</span><span class="o">:</span> <span class="ni">center</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="nc">.friendname</span> <span class="p">{</span>
+  <span class="na">font-size</span><span class="o">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<ol start="3">
+<li><code>LoveIt/assets/css/_page/</code> 下面修改 <code>_single.scss</code>，引入下面一行：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&#34;../_partial/_single/friend&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<ol start="4">
+<li><code>Myblog\content</code>目录下新建<code>friend</code>文件夹，文件夹内新建<code>index.语言.md</code>，配置如下：</li>
+</ol>
+<p>友链示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="p">{{</span><span class="err">（</span><span class="nt">示例</span><span class="err">）</span><span class="o">&lt;</span> <span class="nt">friend</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&#34;Dillon&#34;</span> <span class="nt">url</span><span class="o">=</span><span class="s2">&#34;https://github.com/dillonzq/&#34;</span> <span class="nt">logo</span><span class="o">=</span><span class="s2">&#34;https://avatars0.githubusercontent.com/u/30786232?s=460&amp;u=5fc878f67c869ce6628cf65121b8d73e1733f941&amp;v=4&#34;</span> <span class="nt">word</span><span class="o">=</span><span class="s2">&#34;LoveIt主题作者&#34;</span> <span class="o">&gt;</span><span class="p">}}</span>
+<span class="p">{{</span><span class="o">&lt;</span> <span class="nt">friend</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&#34;Z字骚年&#34;</span> <span class="nt">url</span><span class="o">=</span><span class="s2">&#34;https://zouyx.github.io/&#34;</span> <span class="nt">logo</span><span class="o">=</span><span class="s2">&#34;https://avatars.githubusercontent.com/u/3828072?v=4&amp;s=160&#34;</span> <span class="nt">word</span><span class="o">=</span><span class="s2">&#34;Joe Zou&#39;s Blog&#34;</span> <span class="o">&gt;</span><span class="p">}}</span>
+<span class="p">{{</span><span class="o">&lt;</span> <span class="nt">friend</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&#34;张其&#34;</span> <span class="nt">url</span><span class="o">=</span><span class="s2">&#34;https://blog.csdn.net/u010927340&#34;</span> <span class="nt">logo</span><span class="o">=</span><span class="s2">&#34;https://avatars3.githubusercontent.com/u/12484497?v=4&amp;s=160&#34;</span> <span class="nt">word</span><span class="o">=</span><span class="s2">&#34;张其的博客&#34;</span> <span class="o">&gt;</span><span class="p">}}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="o">---</span>
+<span class="nt">hiddenFromSearch</span><span class="nd">:</span> <span class="nt">true</span>
+<span class="o">---</span>
+<span class="p">{{</span><span class="o">&lt;</span> <span class="nt">friend</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&#34;Z字骚年&#34;</span> <span class="nt">url</span><span class="o">=</span><span class="s2">&#34;https://zouyx.github.io/&#34;</span> <span class="nt">logo</span><span class="o">=</span><span class="s2">&#34;https://avatars.githubusercontent.com/u/3828072?v=4&amp;s=160&#34;</span> <span class="nt">word</span><span class="o">=</span><span class="s2">&#34;Joe Zou&#39;s Blog&#34;</span> <span class="o">&gt;</span><span class="p">}}</span>
+<span class="p">{{</span><span class="o">&lt;</span> <span class="nt">friend</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&#34;张其&#34;</span> <span class="nt">url</span><span class="o">=</span><span class="s2">&#34;https://blog.csdn.net/u010927340&#34;</span> <span class="nt">logo</span><span class="o">=</span><span class="s2">&#34;https://avatars3.githubusercontent.com/u/12484497?v=4&amp;s=160&#34;</span> <span class="nt">word</span><span class="o">=</span><span class="s2">&#34;张其的博客&#34;</span> <span class="o">&gt;</span><span class="p">}}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="摘要分割符">摘要分割符</h2>
+<p>添加摘要分割符来拆分文章生成摘要.摘要分隔符之前的内容将用作该文章的摘要.注意全部为小写且没有空格.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!- -more- -&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="注意和技巧代码框">注意和技巧代码框</h2>
+<p>插值表达式<code>&lt; /admonition note/tip&gt;</code>引入注意代码框/技巧框，示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="o">&lt;</span><span class="w"> </span><span class="n">admonition</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="s2">&#34;怎样选择搜索引擎?&#34;</span><span class="w"> </span><span class="o">&gt;</span><span class="w">
+</span><span class="w"></span><span class="err">以下是两种搜索引擎的对比</span><span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="o">`</span><span class="n">lunr</span><span class="o">`</span><span class="p">:</span><span class="w"> </span><span class="err">简单</span><span class="p">,</span><span class="w"> </span><span class="err">无需同步</span><span class="w"> </span><span class="o">`</span><span class="k">index</span><span class="p">.</span><span class="n">json</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="err">没有</span><span class="w"> </span><span class="o">`</span><span class="n">contentLength</span><span class="o">`</span><span class="w"> </span><span class="err">的限制</span><span class="p">,</span><span class="w"> </span><span class="err">但占用带宽大且性能低</span><span class="w"> </span><span class="p">(</span><span class="err">特别是中文需要一个较大的分词依赖库</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="o">*</span><span class="w"> </span><span class="o">`</span><span class="n">algolia</span><span class="o">`</span><span class="p">:</span><span class="w"> </span><span class="err">高性能并且占用带宽低</span><span class="p">,</span><span class="w"> </span><span class="err">但需要同步</span><span class="w"> </span><span class="o">`</span><span class="k">index</span><span class="p">.</span><span class="n">json</span><span class="o">`</span><span class="w"> </span><span class="err">且有</span><span class="w"> </span><span class="o">`</span><span class="n">contentLength</span><span class="o">`</span><span class="w"> </span><span class="err">的限制</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n"></span><span class="w"> </span><span class="err">文章内容被</span><span class="w"> </span><span class="o">`</span><span class="n">h2</span><span class="o">`</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="o">`</span><span class="n">h3</span><span class="o">`</span><span class="w"> </span><span class="n">HTML</span><span class="w"> </span><span class="err">标签切分来提高查询效果并且基本实现全文搜索</span><span class="p">.</span><span class="w">
+</span><span class="w"></span><span class="o">`</span><span class="n">contentLength</span><span class="o">`</span><span class="w"> </span><span class="err">用来限制</span><span class="w"> </span><span class="o">`</span><span class="n">h2</span><span class="o">`</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="o">`</span><span class="n">h3</span><span class="o">`</span><span class="w"> </span><span class="n">HTML</span><span class="w"> </span><span class="err">标签开头的内容部分的最大长度</span><span class="p">.</span><span class="w">
+</span><span class="w"></span><span class="o">&lt;</span><span class="w"> </span><span class="o">/</span><span class="n">admonition</span><span class="w"> </span><span class="o">&gt;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png" title="搜索引擎设置" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png" data-sub-html="<h2> </h2><p>搜索引擎设置</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144219.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&lt; admonition tip &#34;关于 algolia 的使用技巧&#34; &gt;
+你需要上传 `index.json` 到 algolia 来激活搜索功能. 你可以使用浏览器来上传 `index.json` 文件但是一个自动化的脚本可能效果更好.
+[Algolia Atomic](https://github.com/chrisdmacrae/atomic-algolia) 是一个不错的选择.
+为了兼容 Hugo 的多语言模式, 你需要上传不同语言的 `index.json` 文件到对应的 algolia index, 例如 `zh-cn/index.json` 或 `fr/index.json`...
+&lt; /admonition &gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210723144604.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h2 id="开启画廊效果">开启画廊效果</h2>
+<ul>
+<li>第一步配置文件设置<code>lightgallery = true</code>，默认前置参数可设置单篇文章是否开启画廊</li>
+<li>第二步在 Markdown 语法图片链接后面加个空格和空串，如：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-http" data-lang="http"><span class="err">![](https://gitee.com/xx/xx.png &#34; &#34;)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>CMS：内容管理系统(Content Management System)</p>
+<p>正因为内容的核心地位，所以今天建设网站的技术框架中<strong>CMS</strong>（内容管理系统）是最为流行的，因为你需要有一个系统不停的发布新的贴近用户的内容，而不是只有一个冰冷的5页的页面和一个电话。</p>
+<p>SEO是英文 Search Engine Optimization 的缩写，中文意思“搜索引擎优化”。SEO是指在了解搜索引擎自然排名机制的基础上，对网站进行内部及外部的调整优化，改进网站在搜索引擎中的关键词自然排名，从而获得更多流量，最终达成品牌建设或者产品销售的目的。</p>
+<p>不管是百度还是谷歌等百科网站，对于SEO解释都是大同小异，简单来说就是通过一定技术手段提高网站关键词搜索排名获取更多展示，然后从自然搜索结果获得更多网站流量的过程。</p>
+<h2 id="未解决问题">未解决问题</h2>
+<ul>
+<li>
+<p>未设置站点统计</p>
+</li>
+<li>
+<p>未设置评论系统</p>
+</li>
+<li>
+<p>Git actions 自动部署博客</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/hugoset/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://Crush-hub.github.io/hugoset/" data-title="Window环境搭建hugo个人博客" data-hashtags="hugo"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://Crush-hub.github.io/hugoset/" data-hashtag="hugo"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://Crush-hub.github.io/hugoset/" data-title="Window环境搭建hugo个人博客"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://Crush-hub.github.io/hugoset/" data-title="Window环境搭建hugo个人博客"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://Crush-hub.github.io/hugoset/" data-title="Window环境搭建hugo个人博客" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">hugo</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/mysql/" class="next" rel="next" title="Mysql数据库入门">Mysql数据库入门<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.85.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Crush-Cmj</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"欢迎评论···","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"早起的年轻人","id-2":"早起的年轻人"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

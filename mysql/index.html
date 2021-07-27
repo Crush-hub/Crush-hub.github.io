@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Mysql数据库入门 - Crush-Cmjの博客 - 在阅读中遇见自己</title><meta name="Description" content="早起的年轻人"><meta property="og:title" content="Mysql数据库入门" />
+<meta property="og:description" content="Mysql数据库入门 概念 数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库；底层以二维表形式保存数据的库就是关系型数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Crush-hub.github.io/mysql/" /><meta property="og:image" content="https://Crush-hub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-23T10:07:56+08:00" />
+<meta property="article:modified_time" content="2021-07-23T10:07:56+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Crush-hub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Mysql数据库入门"/>
+<meta name="twitter:description" content="Mysql数据库入门 概念 数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库；底层以二维表形式保存数据的库就是关系型数"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Crush-hub.github.io/mysql/" /><link rel="prev" href="https://Crush-hub.github.io/hugoset/" /><link rel="next" href="https://Crush-hub.github.io/sts_ares/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mysql数据库入门",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Crush-hub.github.io\/mysql\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/Crush-hub.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "sql","wordcount":  4975 ,
+        "url": "https:\/\/Crush-hub.github.io\/mysql\/","datePublished": "2021-07-23T10:07:56+08:00","dateModified": "2021-07-23T10:07:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Crush","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/Crush-hub.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Crush-Cmj"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/friend/"><i class='fas fa-user-friends'></i> 友链 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/friend/" title=""><i class='fas fa-user-friends'></i>友链</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Mysql数据库入门</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Crush-Cmj</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="far fa-folder fa-fw"></i>数据库</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4975 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;<span id="/mysql/" class="leancloud_visitors" data-flag-title="Mysql数据库入门">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql数据库入门">Mysql数据库入门</a>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#常见数据结构">常见数据结构</a>
+          <ul>
+            <li><a href="#数值型">数值型</a></li>
+            <li><a href="#浮点型">浮点型</a></li>
+            <li><a href="#日期型">日期型</a></li>
+            <li><a href="#字符型">字符型</a></li>
+          </ul>
+        </li>
+        <li><a href="#sql语句">SQL语句</a>
+          <ul>
+            <li><a href="#sql语句分类">Sql语句分类</a>
+              <ul>
+                <li><a href="#数据定义语言ddl">数据定义语言—DDL</a></li>
+                <li><a href="#数据操作语言dml">数据操作语言—DML</a></li>
+                <li><a href="#数据控制语言dcl">数据控制语言—DCL</a></li>
+                <li><a href="#数据查询语言dql">数据查询语言—DQL</a>
+                  <ul>
+                    <li><a href="#单表查询">单表查询</a>
+                      <ul>
+                        <li><a href="#1distinct用于剔除重复记录">1.DISTINCT用于剔除重复记录</a></li>
+                        <li><a href="#2where条件限定">2.WHERE条件限定</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#字段约束">字段约束</a>
+                      <ul>
+                        <li><a href="#主键约束">主键约束</a></li>
+                        <li><a href="#非空约束">非空约束</a></li>
+                        <li><a href="#唯一约束">唯一约束</a></li>
+                        <li><a href="#外键约束">外键约束</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#事务传播">事务传播</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mysql数据库入门">Mysql数据库入门</h1>
+<h2 id="概念">概念</h2>
+<p>数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库；底层以二维表形式保存数据的库就是关系型数据库关系型数据库；常见关系型数据库有Oracle(Oracle)、DB2(IBM)、SQL Server(MS)、MySQL(Oracle)</p>
+<h2 id="常见数据结构">常见数据结构</h2>
+<p>MySQL支持多种类型，大致可以分为四类：数值型、浮点型、日期/时间和字符串(字符)类型</p>
+<h3 id="数值型">数值型</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113014.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="浮点型">浮点型</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113028.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="日期型">日期型</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113042.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="字符型">字符型</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h2 id="sql语句">SQL语句</h2>
+<ul>
+<li>SQL ： Structured Query Language 结构化查询语言</li>
+<li>SQL是在关系数据库上执行数据操作、检索及维护所使用的标准语言</li>
+<li>可以用来查询数据，操纵数据，定义数据，控制数据</li>
+</ul>
+<h3 id="sql语句分类">Sql语句分类</h3>
+<ul>
+<li>数据定义语言(DDL)：Data Definition Language</li>
+<li>数据操纵语言(DML)：Data Manipulation Language</li>
+<li>数据查询语言(DQL)：Data Query Language</li>
+<li>数据控制语言(DCL)：Data Control Language</li>
+<li>事务控制语言(TCL)：Transaction Control Language</li>
+</ul>
+<h4 id="数据定义语言ddl">数据定义语言—DDL</h4>
+<ul>
+<li>
+<p>create （database/tavble） 创建库 创建表</p>
+</li>
+<li>
+<p>alter (table) 添加、删除、修改数据表字段（列）</p>
+</li>
+<li>
+<p>drop (database/table) 删除库 删除表</p>
+</li>
+<li>
+<p>库相关</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">mybase</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">mybase</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">UTF8</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">查看当前使用的数据库</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">mybase</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">UTF8</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="err">修改数据库编码</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">mybase</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">删除数据库</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">USE</span><span class="w"> </span><span class="n">mybase</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">切换数据库</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>表相关</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="err">创建表</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">exam</span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">
+</span><span class="w"></span><span class="n">English</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="n">Chinese</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="n">Math</span><span class="w"> </span><span class="nb">int</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">desc</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">查看表结构</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">删除表</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">History</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">添加列</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ALTER TABLE exam MODIFY History DOUBLE(7,2);
+#修改列的类型、长度、约束
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="n">History</span><span class="w"> </span><span class="n">Physics</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">修改表的列名</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">RENAME</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">score</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">修改表名</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ALTER TABLE score CHARACTER SET GBK;
+#修改表的字符集
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ALTER TABLE score DROP Physics;
+#删除列
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="数据操作语言dml">数据操作语言—DML</h4>
+<p><strong>update,insert,delete</strong></p>
+<ul>
+<li>插入部分列</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span><span class="w"> 
+</span><span class="w"></span><span class="k">INTO</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">English</span><span class="p">,</span><span class="n">Chinese</span><span class="p">,</span><span class="n">Math</span><span class="p">)</span><span class="w"> 
+</span><span class="w"></span><span class="n">VALUE</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="err">‘</span><span class="n">Hudie</span><span class="err">’</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">);</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>插入所有列</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="err">‘</span><span class="n">Shu</span><span class="err">’</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">);</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改记录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">Chinese</span><span class="o">=</span><span class="mi">99</span><span class="p">;</span><span class="w"> </span><span class="err">–全表修改</span><span class="w">
+</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">Math</span><span class="o">=</span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="err">‘</span><span class="mi">1</span><span class="err">’</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除记录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="err">‘</span><span class="mi">2</span><span class="err">’</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">score</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数据控制语言dcl">数据控制语言—DCL</h4>
+<p>数据控制语言DCL(grant,revoke)主要为用户授予和撤销权限</p>
+<ul>
+<li>创建用户：CREATE USER 用户名@ip IDENTIFIED BY 密码;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">Fox</span><span class="o">@</span><span class="n">localhost</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="err">‘</span><span class="mi">123456</span><span class="err">’</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>给用户授权:GRANT 权限1,权限2,…,权限n   ON   数据库名.* TO 用户名@IP;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">grant</span><span class="w"> </span><span class="k">select</span><span class="p">,</span><span class="k">drop</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Fox</span><span class="o">@</span><span class="n">localhost</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>撤销权限:REVOKE 权限1，权限2，·····权限n     ON   数据库名.* TO 用户名@IP;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">revoke select on mysql.* from Fox@localhost;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看用户的权限:SHOW GRANTS FOR 用户名@IP</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">show grants for Fox@localhost;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除用户</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">drop user Fox@localhost;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="数据查询语言dql">数据查询语言—DQL</h4>
+<p><strong>SELECT</strong></p>
+<p>关键字：</p>
+<p>distinct</p>
+<p>as</p>
+<p>+-*/</p>
+<p>like，</p>
+<p>and，or</p>
+<p>in /，not in</p>
+<p>between</p>
+<p>order by</p>
+<p>聚合函数</p>
+<p>group by</p>
+<p>limit</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--全表查询
+</span><span class="c1"></span><span class="w">	
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">Math</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="n">Math</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--过滤重复字段
+</span><span class="c1"></span><span class="w">	
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="n">English</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">English_score</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--字段起别名（as可省略）
+</span><span class="c1"></span><span class="w">	
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="n">English</span><span class="p">,</span><span class="n">Chinese</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="err">‘张三’</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--查询指定字段
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">English</span><span class="o">-</span><span class="mi">20</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_English</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="n">English</span><span class="o">+</span><span class="n">Math</span><span class="o">+</span><span class="n">Chinese</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--使用加减乘除
+</span><span class="c1"></span><span class="w">	
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="err">‘张</span><span class="n">_</span><span class="err">’</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="err">‘</span><span class="o">%%</span><span class="err">’</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--模糊查询
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">English</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Chinese</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">90</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">English</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">Math</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">99</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--and，or
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w">
+</span><span class="w">	</span><span class="c1">--in，not in
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">English</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--between···and
+</span><span class="c1"></span><span class="w">	
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Chinese</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Chinese</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--order by
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="o">&lt;</span><span class="c1">-- 如果英语成绩相同,按照汉语成绩降序排列 --&gt;
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> 
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">English</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="n">Chinese</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"> 
+</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">English</span><span class="o">+</span><span class="n">Math</span><span class="o">+</span><span class="n">Chinese</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">English</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">English</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">English</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w">
+</span><span class="w">	</span><span class="c1">--聚合函数	
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>关键字：group by，limit</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="w">	</span><span class="c1">--查询每个部门的最高薪水,只有最高薪水大于15000的记录被显示
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">deptno</span><span class="p">,</span><span class="k">MAX</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span><span class="k">AS</span><span class="w"> </span><span class="n">max_sal</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">deptno</span><span class="w"> 
+</span><span class="w"></span><span class="k">HAVING</span><span class="w"> </span><span class="n">max_sal</span><span class="o">&gt;=</span><span class="mi">15000</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w">	</span><span class="c1">--查询每个部门的平均工资
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">deptno</span><span class="p">,</span><span class="k">AVG</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">deptno</span><span class="w"> 
+</span><span class="w"></span><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">9000</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w">	</span><span class="c1">--查看工资最高的前十个职员信息 （页数-1，）
+</span><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="w"> 
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sal</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h5 id="单表查询">单表查询</h5>
+<h6 id="1distinct用于剔除重复记录">1.DISTINCT用于剔除重复记录</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sal</span><span class="p">,</span><span class="w"> </span><span class="n">bonus</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">bonus</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span><span class="w"> </span><span class="c1">-- distinct用于剔除重复记录
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="2where条件限定">2.WHERE条件限定</h6>
+<p>WHERE子句后面跟的是条件，条件可以有多个，多个条件之间用连接词（or | and）进行连接。</p>
+<p>WHERE子句查询语法：SELECT    列名称  | *    FROM 表名称 WHERE 列 运算符 值</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113308.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>查询emp表中【总薪资(薪资+奖金)大于3500】的所有员工，显示员工姓名、总薪资</li>
+<li>ifnull(列名, 值)函数: 判断指定的列是否包含null值，如果有null值，用第二个值替换null值</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">bonus</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">bonus</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3500</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3500</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>注意查看上面查询结果中的表头，如何将表头中的 sal+bonus 修改为 &ldquo;总薪资&quot;使用as可以为表头指定别名（格式：<strong>列名 as 别名</strong>），另外as可省略</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="err">姓名</span><span class="p">,</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="err">总薪资</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3500</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="err">姓名</span><span class="p">,</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="err">总薪资</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="o">+</span><span class="n">ifnull</span><span class="p">(</span><span class="n">bonus</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3500</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查询emp表中【薪资在3000和4500之间】的员工，显示员工姓名和薪资</li>
+<li>between···and 在&hellip;和&hellip;之间</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="n">sal</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="o">&gt;=</span><span class="mi">3000</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sal</span><span class="o">&lt;=</span><span class="mi">4500</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="n">sal</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sal</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">3000</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">4500</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h5 id="字段约束">字段约束</h5>
+<h6 id="主键约束">主键约束</h6>
+<p>主键约束：如果为一个列添加了主键约束，那么这个列就是主键，主键的特点是唯一且不能为空。通常情况下，每张表都会有主键。</p>
+<p>主键自增策略**当主键为数值类型时，为了方便维护，可以设置主键自增策略（auto_increment），设置了主键自增策略后，数据库会在表中保存一个AUTO_INCREMENT变量值，初始值为1，当需要id值，不需要我们指定值，由数据库负责从AUTO_INCREMENT获取一个id值，作为主键值插入到表中。而且每次用完AUTO_INCREMENT值，都会自增1. AUTO_INCREMENT=1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">abc</span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">auto_increment</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">abc</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">abc</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">abc</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">abc</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="非空约束">非空约束</h6>
+<p>非空约束：如果为一个列添加了非空约束，那么这个列的值就不能为空，但可以重复。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">user</span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">auto_increment</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="n">password</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">);</span><span class="o">//</span><span class="err">不符合非空约束</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">123</span><span class="p">;);</span><span class="o">//</span><span class="n">OK</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="唯一约束">唯一约束</h6>
+<p>唯一约束：如果为一个列添加了唯一约束，那么这个列的值就必须是唯一的（即不能重复），但可以为空。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">auto_increment</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="n">username</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">unique</span><span class="c1">--唯一约束
+</span><span class="c1"></span><span class="w">	</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="s1">&#39;lisi&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="s1">&#39;lisi&#39;</span><span class="p">);</span><span class="c1">--username的值要唯一,重复会报错的
+</span><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h6 id="外键约束">外键约束</h6>
+<p>外键其实就是用于通知数据库两张表数据之间对应关系的这样一个列。这样数据库就会帮我们维护两张表中数据之间的关系。注意，创建表的同时添加外键</p>
+<ul>
+<li>如何保存两张表（dept、emp）之间的关系，通常我们会在多的一方(emp)添加一个列(dept_id)来保存另一方(dept)的主键(id)，以此来保存两张表数据之间的对应关系</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">emp</span><span class="p">(</span><span class="w">
+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w">
+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w">
+</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w">
+</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">dept_id</span><span class="p">)</span><span class="w"> </span><span class="k">references</span><span class="w"> </span><span class="n">dept</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h1 id="事务传播">事务传播</h1>
+<ul>
+<li>事务的传播类型</li>
+</ul>
+<p>MANDATORY</p>
+<p>NEVER</p>
+<p>NOT_SUPPORTED</p>
+<p>SUPPORTS</p>
+<p>REQUIRED（默认）</p>
+<p>REQUIRES_NEW</p>
+<p>NESTED</p>
+<ul>
+<li>在某个业务类中有2个更新数据的方法，且都是事务性的，如果第2个方法调用第1个方法，会有几个事务？</li>
+</ul>
+<p>Spring管理事务是基于接口进行代理，一个业务类产生一个代理对象，当调用的两个更新数据的方法来源于Spring管理的同一对象，则只会产生一个代理对象，只有一个事务，不存在事务的传播；</p>
+<p>当两个方法来源于Spring管理的不同代理对象，则存在两个事务</p>
+<p>情形一：</p>
+<p>Spring管理事务是基于接口进行代理的，一个业务类产生一个代理对象，在调用<code>@Transactional</code>注解的方法之前就会开启事务，并在过程中决定是否回滚或最终提交！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">开启事务
+
+		执行update2()方法
+			调用update1()方法
+				
+    因update1()方法抛出异常且符合回滚规则，执行回滚事务
+    
+若未出现回滚，则提交事务（本例会回滚，不会执行这一步）
+</code></pre></td></tr></table>
+</div>
+</div><p>由于update1()是在update2()内部调用的，不是由代理对象来调用,内部调用update1（）不存在事务性，只会在调用update2()方法时开启1个事务，内部调用的update1()根本不是事务性的（不管有没有@Transactional注解），既然只有1个事务，也就不存在事务的传播了！</p>
+<p>情形二：</p>
+<p>这一次也是在update2()中调用另一个事务性的方法，为什么就是有效的呢？是因为这次调用的是另一个对象的方法，而这个对象也是Spring的事务管理机制产生的代理对象，其执行过程大致是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">开启事务
+		执行update2()方法（UserServiceImpl类的）
+				更新id=2的数据，且成功
+				
+				开启新事务
+						调用updateSuccessfully()方法（OrderServiceImpl类的）
+				未出现回滚，则提交事务
+				
+				更新id=2000000的数据，且失败，执行回滚事务
+若未出现回滚，则提交事务（本例会回滚，不会执行这一步）
+
+</code></pre></td></tr></table>
+</div>
+</div><p>总结：</p>
+<ul>
+<li>Spring管理事务是基于接口代理的；</li>
+<li>当前类的方法之间的调用，并不存在事务的传播，被调用的方法之前是否添加@Transactional注解对结果没有影响；</li>
+<li>不同类的方法之间的调用，对于被调用的方法，可以通过@Transactional注解的propagation属性来配置事务传播类型。</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mysql/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://Crush-hub.github.io/mysql/" data-title="Mysql数据库入门" data-hashtags="sql"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://Crush-hub.github.io/mysql/" data-hashtag="sql"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://Crush-hub.github.io/mysql/" data-title="Mysql数据库入门"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://Crush-hub.github.io/mysql/" data-title="Mysql数据库入门"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://Crush-hub.github.io/mysql/" data-title="Mysql数据库入门" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sql/">sql</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/hugoset/" class="prev" rel="prev" title="Window环境搭建hugo个人博客"><i class="fas fa-angle-left fa-fw"></i>Window环境搭建hugo个人博客</a>
+            <a href="/sts_ares/" class="next" rel="next" title="基于STS的Ares5.0工程开发">基于STS的Ares5.0工程开发<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.85.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Crush-Cmj</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"欢迎评论···","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"早起的年轻人","id-2":"早起的年轻人"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

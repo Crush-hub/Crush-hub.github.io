@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>sql - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</title>
+        <link>https://Crush-hub.github.io/tags/sql/</link>
+        <description>sql - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1412413147@qq.com (Crush-Cmj)</managingEditor>
+            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Jul 2021 10:07:56 &#43;0800</lastBuildDate><atom:link href="https://Crush-hub.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>Mysql数据库入门</title>
+    <link>https://Crush-hub.github.io/mysql/</link>
+    <pubDate>Fri, 23 Jul 2021 10:07:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Crush-hub.github.io/mysql/</guid>
+    <description><![CDATA[Mysql数据库入门 概念 数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库；底层以二维表形式保存数据的库就是关系型数]]></description>
+</item></channel>
+</rss>

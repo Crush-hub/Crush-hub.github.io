@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>基于STS的Ares5.0工程开发 - Crush-Cmjの博客 - 在阅读中遇见自己</title><meta name="Description" content="早起的年轻人"><meta property="og:title" content="基于STS的Ares5.0工程开发" />
+<meta property="og:description" content="基于STS的Ares5.0工程开发 Ares5.0开发环境搭建 1.Node环境准备 安装NVM 使用NVM安装Node，可以方便的切换Node版本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Crush-hub.github.io/sts_ares/" /><meta property="og:image" content="https://Crush-hub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-23T10:08:14+08:00" />
+<meta property="article:modified_time" content="2021-07-23T10:08:14+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Crush-hub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="基于STS的Ares5.0工程开发"/>
+<meta name="twitter:description" content="基于STS的Ares5.0工程开发 Ares5.0开发环境搭建 1.Node环境准备 安装NVM 使用NVM安装Node，可以方便的切换Node版本"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Crush-hub.github.io/sts_ares/" /><link rel="prev" href="https://Crush-hub.github.io/mysql/" /><link rel="next" href="https://Crush-hub.github.io/springcloud_alibaba/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "基于STS的Ares5.0工程开发",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Crush-hub.github.io\/sts_ares\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/Crush-hub.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Ares","wordcount":  3447 ,
+        "url": "https:\/\/Crush-hub.github.io\/sts_ares\/","datePublished": "2021-07-23T10:08:14+08:00","dateModified": "2021-07-23T10:08:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Crush","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/Crush-hub.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Crush-Cmj"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/friend/"><i class='fas fa-user-friends'></i> 友链 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Crush-Cmjの博客 - 在阅读中遇见自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://github.com/Crush-hub" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/friend/" title=""><i class='fas fa-user-friends'></i>友链</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">基于STS的Ares5.0工程开发</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Crush-Cmj</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ares/"><i class="far fa-folder fa-fw"></i>Ares</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3447 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/sts_ares/" class="leancloud_visitors" data-flag-title="基于STS的Ares5.0工程开发">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基于sts的ares50工程开发">基于STS的Ares5.0工程开发</a>
+      <ul>
+        <li><a href="#ares50开发环境搭建">Ares5.0开发环境搭建</a>
+          <ul>
+            <li><a href="#1node环境准备">1.Node环境准备</a>
+              <ul>
+                <li><a href="#安装nvm">安装NVM</a></li>
+                <li><a href="#配置淘宝镜像">配置淘宝镜像</a></li>
+                <li><a href="#安装node">安装Node</a></li>
+                <li><a href="#切换nodejs版本">切换nodejs版本</a></li>
+                <li><a href="#配置环境变量">配置环境变量</a></li>
+                <li><a href="#测试nodenpm是否安装成功">测试node，npm是否安装成功</a></li>
+              </ul>
+            </li>
+            <li><a href="#2全局安装进程">2.全局安装进程</a></li>
+            <li><a href="#3全局安装gulp">3.全局安装gulp</a></li>
+            <li><a href="#4安装插件">4.安装插件</a></li>
+            <li><a href="#5公共环境模板配置">5.公共环境模板配置</a></li>
+            <li><a href="#6maven配置">6.Maven配置</a></li>
+            <li><a href="#7sts优化配置">7.STS优化配置</a></li>
+            <li><a href="#8导入工程">8.导入工程</a></li>
+          </ul>
+        </li>
+        <li><a href="#ares50应用架构说明">Ares5.0应用架构说明</a></li>
+        <li><a href="#工程说明">工程说明</a>
+          <ul>
+            <li><a href="#基本结构">基本结构</a></li>
+            <li><a href="#工程jar包依赖">工程jar包依赖</a></li>
+            <li><a href="#网关ares-mobile-gateway执行时序">网关（ares-mobile-gateway）执行时序</a></li>
+            <li><a href="#cust渠道整合工程">cust渠道整合工程</a></li>
+            <li><a href="#ibusinesscontext">IBusinessContext</a>
+              <ul>
+                <li><a href="#数据总线作用">数据总线作用</a></li>
+                <li><a href="#1头区">1.头区</a></li>
+                <li><a href="#2请求区">2.请求区</a></li>
+                <li><a href="#3会话区">3.会话区</a></li>
+                <li><a href="#4缓存区">4.缓存区</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#组件说明">组件说明</a></li>
+        <li><a href="#后台接口服务开发流程">后台接口服务开发流程</a>
+          <ul>
+            <li><a href="#1新增接入服务">1.新增接入服务</a></li>
+            <li><a href="#2定义报文">2.定义报文</a></li>
+            <li><a href="#3设计流程及业务逻辑">3.设计流程及业务逻辑</a></li>
+            <li><a href="#4-交易服务测试">4. 交易服务测试</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="基于sts的ares50工程开发">基于STS的Ares5.0工程开发</h1>
+<h2 id="ares50开发环境搭建">Ares5.0开发环境搭建</h2>
+<h3 id="1node环境准备">1.Node环境准备</h3>
+<h4 id="安装nvm">安装NVM</h4>
+<p>使用NVM安装Node，可以方便的切换Node版本，安装NVM之前一定要卸载已安装的 NodeJS，否则会发生冲突。</p>
+<p><strong>NVM全名node.js version management，是一个node的版本管理工具</strong></p>
+<ul>
+<li>下载<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener noreffer">NVM</a>，推荐使用安装包下载，如下图</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194523.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>安装完成后命令行执行命令：nvm 成功出现以下代码</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721194816.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nvm off                     //禁用node.js版本管理(不卸载任何东西)
+nvm on                      //启用node.js版本管理
+nvm install &lt;version&gt;       //安装node.js的命名 version是版本号 例如：nvm install 8.12.0
+nvm uninstall &lt;version&gt;     //卸载node.js是的命令，卸载指定版本的nodejs，当安装失败时卸载使用
+nvm list                    //显示所有安装的node.js版本
+nvm list available          //显示可以安装的所有node.js的版本
+nvm use &lt;version&gt;           //切换到使用指定的nodejs版本
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="配置淘宝镜像">配置淘宝镜像</h4>
+<p>由于nvm默认的下载地址http://nodejs.org/dist/是外国外服务器，速度非常慢，可以切换到淘宝镜像，加快下载速度</p>
+<p>打开nvm的安装路径：D:\software\java_softwear\nvm（我的地址），打开settings.txt，添加如下配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">root: D:\software\java_softwear\nvm
+path: D:\software\java_softwear\Node.js
+arch: 64 
+proxy: none
+node_mirror: http://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="安装node">安装Node</h4>
+<p>Ares中使用的版本是v12.10.0，安装命令如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">nvm  install version
+
+nvm  install v12.10.0
+</code></pre></td></tr></table>
+</div>
+</div><p>Installation complete 代表nodejs安装完成</p>
+<h4 id="切换nodejs版本">切换nodejs版本</h4>
+<p>查询所有的nodejs版本：nvm list ，切换到要使用的版本（nvm use 12.10.0）</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721200022.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h4 id="配置环境变量">配置环境变量</h4>
+<p>为了全局使用nvm命令，就需要配置下环境变量,这里以win10为例:</p>
+<ul>
+<li>
+<p>环境变量：点击我的电脑···属性···高级系统设置···环境变量</p>
+</li>
+<li>
+<p>删除系统变量：
+a. 找到系统变量删除系统自带的nvm变量：<code>NVM_HOME和NVM_SYMLINK</code></p>
+<p> b. 打开path：删除nvm自动添加的变量：<code>Path = %NVM_HOME%;%NVM_SYMLINK%</code></p>
+</li>
+<li>
+<p>配置用户变量：</p>
+</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png" title="image-20210721201317732" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png" data-sub-html="<h2> </h2><p>image-20210721201317732</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210721201317732.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h4 id="测试nodenpm是否安装成功">测试node，npm是否安装成功</h4>
+<p>依次执行node，npm命令，出现以下画面则安装成功</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721201602.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="2全局安装进程">2.全局安装进程</h3>
+<p>确认npm，node安装成功以后，执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">node install pm2 -g
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3全局安装gulp">3.全局安装gulp</h3>
+<p>执行如下命令安装自动化构建工具gulp：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm install gulp-cli -g
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4安装插件">4.安装插件</h3>
+<p>安装STS工具（sts-4.7.1.RELEASE），可在公司内网或<a href="http://spring.io/tools/ggts/all" target="_blank" rel="noopener noreffer">Spring官网</a>下载；</p>
+<p>将 YTStudio*.jar 复制到 sts/plugins 目录中。安装完毕后，打开 STS（或重启STS），即可使用。（新版本插件至少在YTStudio4以上）</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202353.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093441.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="5公共环境模板配置">5.公共环境模板配置</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722084024.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>下载 ares*.zip将 ares.zip 解压到本地的 系统⽤户根⽬录即当前默认用户（C:\Users\曹盟杰\ares）下 ，ares目录如下图所示：</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202655.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>切换到ares目录下，打开cmd，执行命令：<strong>npm install</strong>，执行成功以后，生成如下文件</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721202904.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="6maven配置">6.Maven配置</h3>
+<ul>
+<li>修改Maven本地库地址setting文件中localRepository标签：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">D:\software\java_softwear\apache-maven-3.5.0\apache-maven-3.5.0\conf
+
+&lt;localRepository&gt;D:/YtJavaDev&lt;/localRepository&gt;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>打开STS，选择Window -&gt; Preferences -&gt; Maven,设置如下：</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722091557.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="7sts优化配置">7.STS优化配置</h3>
+<ul>
+<li>
+<p>编码配置（window-prefrences-General-workspace），工程编码设置为UTF-8</p>
+</li>
+<li>
+<p>编译时校验功能关闭，提高STS速度：window-prefrences-vaildation-build一列全部去掉</p>
+</li>
+<li>
+<p>安装properties插件，将配置文件ASCII码转换成中文</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1.下载离线安装文件：http://sourceforge.jp/projects/propedit/downloads/40156/jp.gr.java_conf.ussiy.app.propedit_5.3.3.zip/
+
+2.安装与检验:
+将得到的文件直接解压，可得到这样一个文件夹 jp.gr.java_conf.ussiy.app.propedit_5.3.3 ，直接将该文件夹复制到 STS插件目录下。
+3.重启Eclipse。
+
+4.选中 *.properties 文件，右键 - Open With ，你会看到多了一个 PropertiesEditor 子菜单。
+
+5.将PropertiesEditor设为默认的打开方式
+工具栏-&gt;Window-&gt;Preferences-&gt;General-&gt;Editors-&gt;File Associations,添加一个*.properties。
+下方的 Associated editors 栏里有 PropertiesEditor 项，选中，点击 Default 按钮。
+双击properties文件默认就会用PropEditor打开。
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>SVN目录忽略设置</p>
+</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722100844.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="8导入工程">8.导入工程</h3>
+<ul>
+<li>本地导入：</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093618.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722093654.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>SVN导入需连接公司内网：</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094029.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722094101.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722095005.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h2 id="ares50应用架构说明">Ares5.0应用架构说明</h2>
+<p>Ares5.0标准版采用微服务模式开发，前端通过微服务网关（gateway）访问后台微服务。</p>
+<p>微服务网关（gateway）和微服务之间采用dubbo进行通信（可支持http）</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721140330.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114724.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h2 id="工程说明">工程说明</h2>
+<h3 id="基本结构">基本结构</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722104555.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>ares-mmc-platform：后管服务</li>
+</ul>
+<h3 id="工程jar包依赖">工程jar包依赖</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721143005.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="网关ares-mobile-gateway执行时序">网关（ares-mobile-gateway）执行时序</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210721170205.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="cust渠道整合工程">cust渠道整合工程</h3>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722114515.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<ul>
+<li>dubbo.properties</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#dubbo服务注册中心
+#测试环境
+dubbo.registry.address=zookeeper://192.168.0.171:2181
+#本机环境
+dubbo.registry.address=zookeeper://127.0.0.1:2181
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#dubbo注册中心组名称要与网关（getway）注册中心组配置名称一致
+#dubbo.registry.group=ares.inte
+dubbo.registry.group=dubbo
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>jdbc.properties</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#公司测试环境
+jdbc.url=jdbc:mysql://192.168.0.141:3306/inte?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ibusinesscontext">IBusinessContext</h3>
+<h4 id="数据总线作用">数据总线作用</h4>
+<ul>
+<li>总线在接受交易请求时创建；各组件通过数据总线进行数据存取交互；请求结束，数据总线销毁；</li>
+<li>数据以<code>Map&lt;String,Object&gt;</code>或<code>List&lt;Map&lt;String,Object&gt;&gt;</code>等对象方式保存在总线中；</li>
+<li>顶层结构为Map，包含头区、请求区、会话区、缓存区等数据区块；</li>
+<li>会话区数据不能通过交易请求字段生成；调用通讯时请求中包含<code>SESS_</code>的数据为非法数据。</li>
+</ul>
+<p>数据结构示意如下:</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722161713.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h4 id="1头区">1.头区</h4>
+<p>KEY以 <code>H_</code> 开头，如 <code>H_SEQ</code></p>
+<ul>
+<li>API</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Map</span> <span class="nf">getHeadMap</span><span class="o">();</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getHeadMap</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHead</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span><span class="n">String</span> <span class="n">value</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">seq</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getHead</span><span class="o">(</span><span class="s">&#34;H_SEQ&#34;</span><span class="o">);</span>
+<span class="n">或者表达式$</span><span class="o">{</span><span class="n">H_SEQ</span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2请求区">2.请求区</h4>
+<ul>
+<li>API</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getParam</span><span class="o">(</span><span class="n">String</span> <span class="n">xpath</span><span class="o">);</span>
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getParam</span><span class="o">(</span><span class="n">String</span> <span class="n">xpath</span><span class="o">,</span><span class="n">Object</span> <span class="n">def</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">setParam</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">data</span><span class="o">);</span>
+<span class="kd">public</span> <span class="n">Map</span> <span class="nf">getParamMap</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">acctNo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getParam</span><span class="o">(</span><span class="s">&#34;ACCT_NO&#34;</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getParam</span><span class="o">(</span><span class="s">&#34;NUM&#34;</span><span class="o">,</span><span class="n">0</span><span class="o">);</span>
+<span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getParam</span><span class="o">(</span><span class="s">&#34;FLAG&#34;</span><span class="o">,</span><span class="kc">false</span><span class="o">);</span>
+<span class="c1">//或者表达式${ACCT_NO}
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3会话区">3.会话区</h4>
+<p>数据在会话期间有效；KEY以<code>SESS_</code>开头，如：<code>SESS_USER_NO</code>; 只能在组件或者代码中创建</p>
+<ul>
+<li>API</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//获取会话
+</span><span class="c1"></span><span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getSessionObject</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="c1">//保存会话
+</span><span class="c1"></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveSessionObject</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">obj</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getSessionObject</span><span class="o">(</span><span class="s">&#34;SESS_USER_NO&#34;</span><span class="o">);</span>
+<span class="c1">//或者表达式${SESS_USER_NO}
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4缓存区">4.缓存区</h4>
+<p>数据在临时缓存中，如：一次性会话生成，默认有效时长为120s；</p>
+<ul>
+<li>API</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getSessCache</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCacheService</span><span class="o">(</span><span class="n">ICacheService</span> <span class="n">cacheService</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">imgCode</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getSessCache</span><span class="o">(</span><span class="s">&#34;CACHE_IMAGE_CODE&#34;</span><span class="o">);</span>
+<span class="c1">//或者表达式${CACHE_IMAGE_CODE}
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="组件说明">组件说明</h2>
+<h2 id="后台接口服务开发流程">后台接口服务开发流程</h2>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713142819.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<h3 id="1新增接入服务">1.新增接入服务</h3>
+<p>新增接入服务实际上就是利用封装工具自动生成Java类和规范输入输出字段</p>
+<p>启动cust应用服务，切换到接入服务选项卡，点击新增接入服务</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722133259.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134658.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p>每项服务都是一个接口，接口开发完成在Ares交易测试平台模拟请求数据，进行单元测试</p>
+<h3 id="2定义报文">2.定义报文</h3>
+<p>新增接入服务完成后，选择报文路径，定义输入输出字段，注意若接收List表单type必须取值为E</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722134841.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722154309.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span class="nt">&lt;trans</span> <span class="na">name=</span><span class="s">&#34;in/easy/sample10&#34;</span> <span class="na">desc=</span><span class="s">&#34;交易示例-10-查询系统时间&#34;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;snd&gt;</span>
+		<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&#34;NUM&#34;</span> <span class="na">desc=</span><span class="s">&#34;数字&#34;</span> <span class="na">required=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span> required=&#34;true&#34;表示测试必输项
+	<span class="nt">&lt;/snd&gt;</span>
+	<span class="nt">&lt;rcv&gt;</span>
+		<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&#34;SYS_DATE&#34;</span> <span class="na">desc=</span><span class="s">&#34;服务器日期&#34;</span> <span class="nt">/&gt;</span> 保证数据能存入总线，报文属性名称要与Java类中放入总线的Key保持一致
+		<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&#34;FZINFO&#34;</span> <span class="na">desc=</span><span class="s">&#34;分支提示信息&#34;</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;/rcv&gt;</span>
+<span class="nt">&lt;/trans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3设计流程及业务逻辑">3.设计流程及业务逻辑</h3>
+<p>点击访问路径url，创建流程文件，每个组件都是流程图上的一个节点，线条可定义进入节点的条件，当一个功能业务逻辑比较复杂时，可以将一个服务（接口）拆分成多个任务节点实现，便于查看和维护。</p>
+<p>拖拽组件设计完流程后，点击节点设置Java类名称，设置完成保存节点信息。根据beanId创建Java类</p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140946.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713163742.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png" title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png" data-thumbnail="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png" data-sub-html="<h2> </h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png"
+            data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210722140020.png" />
+    </a><figcaption class="image-caption"> </figcaption>
+    </figure></p>
+<p>参数<code>IBusinessContext</code>为数据总线,包含请求数据和将要返回的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetSysDateOp</span> <span class="kd">implements</span> <span class="n">IAresSerivce</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">getClass</span><span class="o">());</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">execute</span><span class="o">(</span><span class="n">IBusinessContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub
+</span><span class="c1"></span>		<span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;-简单任务-run--&#34;</span><span class="o">);</span>
+		<span class="n">String</span> <span class="n">date</span> <span class="o">=</span> <span class="n">DateUtil</span><span class="o">.</span><span class="na">todayStr</span><span class="o">();</span><span class="c1">//获取当前系统时间
+</span><span class="c1"></span>		<span class="n">ctx</span><span class="o">.</span><span class="na">setParam</span><span class="o">(</span><span class="s">&#34;SYS_DATE&#34;</span><span class="o">,</span> <span class="n">date</span><span class="o">);</span><span class="c1">//将获取的时间放入数据总线中，KEY值要与报文定义的KEY值保持一致
+</span><span class="c1"></span>		<span class="k">return</span> <span class="n">NEXT</span><span class="o">;</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png"
+        data-srcset="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png 1.5x, https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png"
+        title="https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210713164557.png" /></p>
+<p>业务代码完成，如节点涉及到数据库操作，在接入服务窗口点击对应SQL链接，自动生成xml文件，编写sql语句，定位标识写到节点设置的数据转译区<code>*sqlId</code>即<code>namespace.id</code></p>
+<p>点击需同步接入信息服务</p>
+<h3 id="4-交易服务测试">4. 交易服务测试</h3>
+<p>服务调试工具中找到对应服务，填入服务必填项测试是否返回所需数据</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/sts_ares/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://Crush-hub.github.io/sts_ares/" data-title="基于STS的Ares5.0工程开发" data-hashtags="Ares"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://Crush-hub.github.io/sts_ares/" data-hashtag="Ares"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://Crush-hub.github.io/sts_ares/" data-title="基于STS的Ares5.0工程开发"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://Crush-hub.github.io/sts_ares/" data-title="基于STS的Ares5.0工程开发"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://Crush-hub.github.io/sts_ares/" data-title="基于STS的Ares5.0工程开发" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ares/">Ares</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/mysql/" class="prev" rel="prev" title="Mysql数据库入门"><i class="fas fa-angle-left fa-fw"></i>Mysql数据库入门</a>
+            <a href="/springcloud_alibaba/" class="next" rel="next" title="SpringCloud_Alibaba">SpringCloud_Alibaba<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.85.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Crush-Cmj</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@13.0.0/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"欢迎评论···","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"早起的年轻人","id-2":"早起的年轻人"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
