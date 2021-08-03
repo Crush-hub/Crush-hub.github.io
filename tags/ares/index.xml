@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Ares - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</title>
-        <link>http://example.org/tags/ares/</link>
+        <link>https://Crush-hub.github.io/tags/ares/</link>
         <description>Ares - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1412413147@qq.com (Crush-Cmj)</managingEditor>
-            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 30 Jul 2021 11:09:04 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/ares/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 30 Jul 2021 11:09:04 &#43;0800</lastBuildDate><atom:link href="https://Crush-hub.github.io/tags/ares/" rel="self" type="application/rss+xml" /><item>
     <title>2021 7 30Task</title>
-    <link>http://example.org/2021-7-30task/</link>
+    <link>https://Crush-hub.github.io/2021-7-30task/</link>
     <pubDate>Fri, 30 Jul 2021 11:09:04 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/2021-7-30task/</guid>
+    <guid>https://Crush-hub.github.io/2021-7-30task/</guid>
     <description><![CDATA[工作记录 需求 → 涉及表 → 报文 → 接口 → bean → Sql 晨夕会 晨会-昨日业绩回顾 银行AUM代表的是银行资产管理规模，所以它是一个衡量银行业务的指标。 现实中，]]></description>
 </item><item>
     <title>基于STS的Ares5.0工程开发</title>
-    <link>http://example.org/sts_ares/</link>
+    <link>https://Crush-hub.github.io/sts_ares/</link>
     <pubDate>Fri, 23 Jul 2021 10:08:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/sts_ares/</guid>
+    <guid>https://Crush-hub.github.io/sts_ares/</guid>
     <description><![CDATA[基于STS的Ares5.0工程开发 Ares5.0开发环境搭建 1.Node环境准备 安装NVM 使用NVM安装Node，可以方便的切换Node版本]]></description>
 </item></channel>
 </rss>

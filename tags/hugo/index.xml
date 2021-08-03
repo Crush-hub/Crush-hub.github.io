@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>hugo - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</title>
-        <link>http://example.org/tags/hugo/</link>
+        <link>https://Crush-hub.github.io/tags/hugo/</link>
         <description>hugo - 标签 - Crush-Cmjの博客 - 在阅读中遇见自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1412413147@qq.com (Crush-Cmj)</managingEditor>
-            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Jul 2021 10:07:42 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/hugo/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Jul 2021 10:07:42 &#43;0800</lastBuildDate><atom:link href="https://Crush-hub.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>Window环境搭建hugo个人博客</title>
-    <link>http://example.org/hugoset/</link>
+    <link>https://Crush-hub.github.io/hugoset/</link>
     <pubDate>Fri, 23 Jul 2021 10:07:42 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/hugoset/</guid>
+    <guid>https://Crush-hub.github.io/hugoset/</guid>
     <description><![CDATA[Window环境搭建hugo个人博客 电脑安装并配置Git，尤其是username和email 注册GitHub账号，在GitHub配置ssh验]]></description>
 </item></channel>
 </rss>
