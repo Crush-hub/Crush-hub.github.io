@@ -27,6 +27,70 @@ MySQL支持多种类型，大致可以分为四类：数值型、浮点型、日
 
 ![](https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113057.png " ")
 
+## 字段约束
+
+### 主键约束
+
+主键约束：如果为一个列添加了主键约束，那么这个列就是主键，主键的特点是唯一且不能为空。通常情况下，每张表都会有主键。
+
+主键自增策略**当主键为数值类型时，为了方便维护，可以设置主键自增策略（auto_increment），设置了主键自增策略后，数据库会在表中保存一个AUTO_INCREMENT变量值，初始值为1，当需要id值，不需要我们指定值，由数据库负责从AUTO_INCREMENT获取一个id值，作为主键值插入到表中。而且每次用完AUTO_INCREMENT值，都会自增1. AUTO_INCREMENT=1
+
+```sql
+create table abc(
+id int primary key auto_increment
+);
+insert into abc values(null);
+insert into abc values(null);
+insert into abc values(null);
+select * from abc;
+```
+
+### 非空约束
+
+非空约束：如果为一个列添加了非空约束，那么这个列的值就不能为空，但可以重复。
+
+```sql
+create table user(
+id int primary key auto_increment,
+password varchar(50) not null
+);
+show tables;
+insert into user values(null,null);//不符合非空约束
+insert into user values(null,123;);//OK
+```
+
+### 唯一约束
+
+唯一约束：如果为一个列添加了唯一约束，那么这个列的值就必须是唯一的（即不能重复），但可以为空。
+
+```sql
+create table test(
+id int primary key auto_increment,
+username varchar(50) unique--唯一约束
+	);
+show tables;
+insert into test values(null,'lisi');
+insert into test values(null,'lisi');--username的值要唯一,重复会报错的
+select * from test;
+```
+
+### 外键约束
+
+外键其实就是用于通知数据库两张表数据之间对应关系的这样一个列。这样数据库就会帮我们维护两张表中数据之间的关系。注意，创建表的同时添加外键
+
+- 如何保存两张表（dept、emp）之间的关系，通常我们会在多的一方(emp)添加一个列(dept_id)来保存另一方(dept)的主键(id)，以此来保存两张表数据之间的对应关系
+
+```sql
+create table emp(
+ id int,
+ name varchar(50),
+ dept_id int,
+ foreign key(dept_id) references dept(id)
+);
+```
+
+![](https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png " ")
+
 ## SQL语句
 
 - SQL ： Structured Query Language 结构化查询语言
@@ -364,75 +428,124 @@ select name,sal from emp
 where sal between 3000 and 4500;
 ```
 
+## Mysql 常见函数
 
+### MYSQL Date 函数
 
+#### CURDATE() 函数
 
+`CURDATE() `函数返回当前的日期
 
-
-
-##### 字段约束
-
-###### 主键约束
-
-主键约束：如果为一个列添加了主键约束，那么这个列就是主键，主键的特点是唯一且不能为空。通常情况下，每张表都会有主键。
-
-主键自增策略**当主键为数值类型时，为了方便维护，可以设置主键自增策略（auto_increment），设置了主键自增策略后，数据库会在表中保存一个AUTO_INCREMENT变量值，初始值为1，当需要id值，不需要我们指定值，由数据库负责从AUTO_INCREMENT获取一个id值，作为主键值插入到表中。而且每次用完AUTO_INCREMENT值，都会自增1. AUTO_INCREMENT=1
+例子1：
 
 ```sql
-create table abc(
-id int primary key auto_increment
-);
-insert into abc values(null);
-insert into abc values(null);
-insert into abc values(null);
-select * from abc;
+SELECT NOW(),CURDATE(),CURTIME()
 ```
 
-###### 非空约束
+结果类似：
 
-非空约束：如果为一个列添加了非空约束，那么这个列的值就不能为空，但可以重复。
+|        NOW()        | CURDATE()  | CURTIME() |
+| :-----------------: | :--------: | :-------: |
+| 2021-08-02 08:00:00 | 2021-08-02 | 08:00:00  |
+
+例子2：
 
 ```sql
-create table user(
-id int primary key auto_increment,
-password varchar(50) not null
-);
-show tables;
-insert into user values(null,null);//不符合非空约束
-insert into user values(null,123;);//OK
+CREATE TABLE Orders 
+(
+OrderId int NOT NULL,
+ProductName varchar(50) NOT NULL,
+OrderDate datetime NOT NULL DEFAULT CURDATE(),
+PRIMARY KEY (OrderId)
+)
 ```
 
-###### 唯一约束
+{{< admonition  "注意">}}
 
-唯一约束：如果为一个列添加了唯一约束，那么这个列的值就必须是唯一的（即不能重复），但可以为空。
+OrderDate 列规定 CURDATE() 作为默认值
+
+作为结果，当向表中插入行时，当前日期和时间自动插入列中，如：
 
 ```sql
-create table test(
-id int primary key auto_increment,
-username varchar(50) unique--唯一约束
-	);
-show tables;
-insert into test values(null,'lisi');
-insert into test values(null,'lisi');--username的值要唯一,重复会报错的
-select * from test;
+INSERT INTO Orders (ProductName) VALUES ('Computer')
 ```
 
-###### 外键约束
+| OrderId | ProductName | OrderDate  |
+| :-----: | :---------: | :--------: |
+|    1    |  Computer   | 2021-08-02 |
 
-外键其实就是用于通知数据库两张表数据之间对应关系的这样一个列。这样数据库就会帮我们维护两张表中数据之间的关系。注意，创建表的同时添加外键
+{{< /admonition  >}}
 
-- 如何保存两张表（dept、emp）之间的关系，通常我们会在多的一方(emp)添加一个列(dept_id)来保存另一方(dept)的主键(id)，以此来保存两张表数据之间的对应关系
+#### DATE_FORMAT() 函数
+
+DATE_FORMAT()  函数用于以不同的格式显示日期/时间数据。
+
+语法：`DATE_FORMAT(date,format)`
+
+- `date` 参数是合法的日期
+
+- `format`：规定日期/时间的输出格式。
 
 ```sql
-create table emp(
- id int,
- name varchar(50),
- dept_id int,
- foreign key(dept_id) references dept(id)
-);
+DATE_FORMAT(PERFOR_TIME,'%Y-%m-%d')=CURDATE()
 ```
 
-![](https://gitee.com/cao-lianjie/pic-go/raw/master/img/20210720113415.png " ")
+#### DATE_SUB() 函数
+
+DATE_SUB() 函数用于从日期减去指定的时间间隔
+
+语法：`DATE_SUB(date,INTERVAL expr type)`
+
+- *date* 参数是合法的日期表达式
+- *expr* 参数是您希望添加的时间间隔
+- type 参数可以是下列值：
+
+![image-20210802165004339](https://gitee.com/cao-lianjie/pic-go/raw/master/img/image-20210802165004339.png " ")
+
+示例：
+
+假设有如下表
+
+| OrderId | ProductName | OrderDate               |
+| :-----: | :---------: | ----------------------- |
+|    1    | 'Computer'  | 2021-08-29 16:25:46.635 |
+
+现在，我们希望从 "OrderDate" 减去 2 天，我们使用下面的 SELECT 语句：
+
+```sql
+SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 2 DAY) AS OrderPayDate
+FROM Orders
+```
+
+结果：
+
+| OrderId |      OrderPayDate       |
+| :-----: | :---------------------: |
+|    1    | 2021-08-27 16:25:46.635 |
+
+### MYSQL CAST()函数
+
+`CAST`函数:==将某种数据类型的表达式显式转换为另一种数据类型==
+
+语法：CAST (expression AS data_type)
+
+- expression：任何有效的SQLServer表达式
+- AS：分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型
+- data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型
+
+|            数据类型            | data_type |
+| :----------------------------: | :-------: |
+| 二进制（同带binary前缀的效果） |  BINARY   |
+|       字符型（可带参数）       |  CHAR()   |
+|              日期              |   DATE    |
+|              时间              |   TIME    |
+|           日期时间型           | DATETIME  |
+|              整数              |  SIGNED   |
+|           无符号整数           | UNSIGNED  |
+
+
+
+
 
 
 

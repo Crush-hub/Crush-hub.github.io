@@ -1,36 +1,50 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>所有文章 - Crush-Cmjの博客 - 在阅读中遇见自己</title>
-        <link>https://Crush-hub.github.io/posts/</link>
+        <link>http://example.org/posts/</link>
         <description>所有文章 | Crush-Cmjの博客 - 在阅读中遇见自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1412413147@qq.com (Crush-Cmj)</managingEditor>
-            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Jul 2021 10:08:39 &#43;0800</lastBuildDate><atom:link href="https://Crush-hub.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 30 Jul 2021 11:09:04 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>2021 7 30Task</title>
+    <link>http://example.org/2021-7-30task/</link>
+    <pubDate>Fri, 30 Jul 2021 11:09:04 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/2021-7-30task/</guid>
+    <description><![CDATA[工作记录 需求 → 涉及表 → 报文 → 接口 → bean → Sql 晨夕会 晨会-昨日业绩回顾 银行AUM代表的是银行资产管理规模，所以它是一个衡量银行业务的指标。 现实中，]]></description>
+</item><item>
+    <title>IDEA入门设置使用</title>
+    <link>http://example.org/idea/</link>
+    <pubDate>Wed, 28 Jul 2021 15:57:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/idea/</guid>
+    <description><![CDATA[IDEA入门设置及使用 下载安装 https://www.jetbrains.com/idea/ 一路下一步即可，注意选择Evaluate for free试用。 " 配置JAVA和MAVEN 打开setting设置→选]]></description>
+</item><item>
     <title>SpringCloud_Alibaba</title>
-    <link>https://Crush-hub.github.io/springcloud_alibaba/</link>
+    <link>http://example.org/springcloud_alibaba/</link>
     <pubDate>Fri, 23 Jul 2021 10:08:39 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Crush-hub.github.io/springcloud_alibaba/</guid>
+    <guid>http://example.org/springcloud_alibaba/</guid>
     <description><![CDATA[微服务入门&mdash;微服务架构的前世今生 此文转载自哈喽沃德先生，处于小白学习阶段，手打去感悟理解，加入自己的理解，在此感谢大佬。 互联网发]]></description>
 </item><item>
     <title>基于STS的Ares5.0工程开发</title>
-    <link>https://Crush-hub.github.io/sts_ares/</link>
+    <link>http://example.org/sts_ares/</link>
     <pubDate>Fri, 23 Jul 2021 10:08:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Crush-hub.github.io/sts_ares/</guid>
+    <guid>http://example.org/sts_ares/</guid>
     <description><![CDATA[基于STS的Ares5.0工程开发 Ares5.0开发环境搭建 1.Node环境准备 安装NVM 使用NVM安装Node，可以方便的切换Node版本]]></description>
 </item><item>
     <title>Mysql数据库入门</title>
-    <link>https://Crush-hub.github.io/mysql/</link>
+    <link>http://example.org/mysql/</link>
     <pubDate>Fri, 23 Jul 2021 10:07:56 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Crush-hub.github.io/mysql/</guid>
+    <guid>http://example.org/mysql/</guid>
     <description><![CDATA[Mysql数据库入门 概念 数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库；底层以二维表形式保存数据的库就是关系型数]]></description>
 </item><item>
     <title>Window环境搭建hugo个人博客</title>
-    <link>https://Crush-hub.github.io/hugoset/</link>
+    <link>http://example.org/hugoset/</link>
     <pubDate>Fri, 23 Jul 2021 10:07:42 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Crush-hub.github.io/hugoset/</guid>
+    <guid>http://example.org/hugoset/</guid>
     <description><![CDATA[Window环境搭建hugo个人博客 电脑安装并配置Git，尤其是username和email 注册GitHub账号，在GitHub配置ssh验]]></description>
 </item></channel>
 </rss>
