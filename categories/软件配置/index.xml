@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>软件配置 - 分类 - Crush-Cmjの博客 - 在阅读中遇见自己</title>
-        <link>http://example.org/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
+        <link>https://Crush-hub.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/</link>
         <description>软件配置 - 分类 - Crush-Cmjの博客 - 在阅读中遇见自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1412413147@qq.com (Crush-Cmj)</managingEditor>
-            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Jul 2021 15:57:29 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1412413147@qq.com (Crush-Cmj)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Jul 2021 15:57:29 &#43;0800</lastBuildDate><atom:link href="https://Crush-hub.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
     <title>IDEA入门设置使用</title>
-    <link>http://example.org/idea/</link>
+    <link>https://Crush-hub.github.io/idea/</link>
     <pubDate>Wed, 28 Jul 2021 15:57:29 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/idea/</guid>
+    <guid>https://Crush-hub.github.io/idea/</guid>
     <description><![CDATA[IDEA入门设置及使用 下载安装 https://www.jetbrains.com/idea/ 一路下一步即可，注意选择Evaluate for free试用。 " 配置JAVA和MAVEN 打开setting设置→选]]></description>
 </item><item>
     <title>Window环境搭建hugo个人博客</title>
-    <link>http://example.org/hugoset/</link>
+    <link>https://Crush-hub.github.io/hugoset/</link>
     <pubDate>Fri, 23 Jul 2021 10:07:42 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/hugoset/</guid>
+    <guid>https://Crush-hub.github.io/hugoset/</guid>
     <description><![CDATA[Window环境搭建hugo个人博客 电脑安装并配置Git，尤其是username和email 注册GitHub账号，在GitHub配置ssh验]]></description>
 </item></channel>
 </rss>
